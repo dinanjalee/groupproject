@@ -99,7 +99,7 @@ You have to choose from multiple restaurant vendors > choose > menu according to
             <a href="#"><img class="card-img-top ci" src="http://localhost/groupproject/assets/images/breakfast.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Breackfast</a>
+                <a href="<?= base_url('index.php/Home/browse/breakfast'); ?>">Breackfast</a>
               </h4>
               <p class="card-text">The first meal of the day should provide you with healthy carbohydrates for energy, fiber to help you feel full, protein to assist in muscle growth and maintenance, and healthy fats for satiety. </p>
             </div>
@@ -110,7 +110,7 @@ You have to choose from multiple restaurant vendors > choose > menu according to
             <a href="#"><img class="card-img-top ci" src="http://localhost/groupproject/assets/images/lunch.jpg" alt=""></a>
             <div class="card-body">
               <b><h4 class="card-title">
-                <a href="#">Lunch</a>
+                 <a href="<?= base_url('index.php/Home/browse/lunch'); ?>">Lunch</a>
               </h4></b>
               <p class="card-text">Healthy lunches and snacks are important for active children.Tips include fresh fruit, crunchy vegetables and a combination of protein, dairy and carbohydrate foods.</p>
             </div>
@@ -121,7 +121,7 @@ You have to choose from multiple restaurant vendors > choose > menu according to
             <a href="#"><img class="card-img-top ci" src="http://localhost/groupproject/assets/images/dinner.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Dinner</a>
+                <a href="<?= base_url('index.php/Home/browse/dinner'); ?>">Dinner</a>
               </h4>
               <p class="card-text">Nutritionally, dinner should be a light, well-portioned meal that is under 500 calories. Most people use dinner as their main source of food for the entire day and over indulge.</p>
             </div>

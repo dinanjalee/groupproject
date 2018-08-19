@@ -89,5 +89,38 @@ class Model_user extends CI_Model{
 
 	}
 
+	function getBreakfastResturants(){
+		try {
+			$this->db->where('breakfast', 'yes');
+		    $result = $this->db->get('restaurant');
+		    return $result->result();
+		} catch (Exception $e) {
+			return $err->getMessage();
+		}
+
+	}
+
+	function getLunchResturants(){
+		try {
+			$this->db->where('lunch', 'yes');
+		    $result = $this->db->get('restaurant');
+		    return $result->result();
+		} catch (Exception $e) {
+			return $err->getMessage();
+		}
+
+	}
+
+	function getDinnerResturants(){
+		try {
+			$this->db->where('dinner', 'yes');
+		    $result = $this->db->get('restaurant');
+		    return $result->result();
+		} catch (Exception $e) {
+			return $err->getMessage();
+		}
+
+	}
+
 
 }

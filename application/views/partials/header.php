@@ -29,6 +29,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url() ?>index.php/Home/index">Home</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url() ?>index.php/Home/map">Shop Map</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url() ?>index.php/Home/contact">Contact</a>
                     </li>

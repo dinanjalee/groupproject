@@ -18,6 +18,17 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct() {
+		parent::__construct();
+		$this->data = array();
+		$this->load->model('Model_user');
+		$this->data['breakast_restaurants'] = $this->Model_user->getBreakfastResturants();
+		$this->data['lunch_restaurants'] = $this->Model_user->getBreakfastResturants();
+		$this->data['dinner_restaurants'] = $this->Model_user->getBreakfastResturants();
+		
+	}
+
 	public function index()
 	{
 		$this->load->view('home');
@@ -73,6 +84,35 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('business/mamas');
 	}
+	public function mcrypt_module_self_test()
+	{
+		$this->load->view('business/mamas');
+	}
+
+
+	public function browse($time){
+		$this->load->model('Model_user');
+
+		if($time == "breakfast"){
+			$this->data['restaurants'] = $this->Model_user->getBreakfastResturants();
+		}
+		elseif($time == "lunch"){
+			$this->data['restaurants'] = $this->Model_user->getLunchResturants();
+		}
+		elseif($time == "dinner"){
+			$this->data['restaurants'] = $this->Model_user->getDinnerResturants();
+		}
+
+
+		$this->load->view('browse',$this->data);
+	}
+
+	public function map(){
+
+		$this->load->view('browse',$this->data);
+	}
+
+	
 
 
 

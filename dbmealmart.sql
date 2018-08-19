@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2018 at 08:20 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Aug 19, 2018 at 01:37 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -51,14 +51,28 @@ CREATE TABLE `customer` (
   `password` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `customer`
+-- Table structure for table `food`
 --
 
-INSERT INTO `customer` (`id`, `fname`, `lname`, `contact`, `email`, `password`) VALUES
-(1, 'nimasha', 'jayasinghe', 775482369, 'dinanjaleena@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(2, 'wageesha', 'jayalath', 715263894, 'wageeshajayalath@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964'),
-(3, 'dulmini', 'jayalath', 775482369, 'dul@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
+CREATE TABLE `food` (
+  `id` int(11) NOT NULL,
+  `restaurant_id` int(11) NOT NULL,
+  `food_name` varchar(45) DEFAULT NULL,
+  `prise` varchar(45) DEFAULT NULL,
+  `breakfast` varchar(3) DEFAULT NULL,
+  `lunch` varchar(3) DEFAULT NULL,
+  `dinner` varchar(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `food`
+--
+
+INSERT INTO `food` (`id`, `restaurant_id`, `food_name`, `prise`, `breakfast`, `lunch`, `dinner`) VALUES
+(1, 1, 'chicken bucket', '300', 'yes', 'yes', 'yes');
 
 -- --------------------------------------------------------
 
@@ -73,19 +87,20 @@ CREATE TABLE `restaurant` (
   `town` varchar(255) NOT NULL,
   `restcontact` int(10) NOT NULL,
   `restemail` varchar(40) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `position` varchar(255) NOT NULL,
-  `contact` int(10) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `password` varchar(40) NOT NULL
+  `logo` varchar(30) NOT NULL,
+  `breakfast` varchar(255) NOT NULL,
+  `lunch` varchar(255) NOT NULL,
+  `dinner` varchar(40) NOT NULL,
+  `longtitiude` decimal(10,8) DEFAULT NULL,
+  `lattitiude` decimal(10,8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`id`, `restname`, `address`, `town`, `restcontact`, `restemail`, `name`, `position`, `contact`, `email`, `password`) VALUES
-(1, 'TFC', 'Agalawatte Road,Matugama', 'Matugama', 342257896, 'tfc@gmail.com', 'K.W.Y.Jayalath', 'Staff', 718549632, 'kwy@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `restaurant` (`id`, `restname`, `address`, `town`, `restcontact`, `restemail`, `logo`, `breakfast`, `lunch`, `dinner`, `longtitiude`, `lattitiude`) VALUES
+(1, 'KFC', 'pagoda road', 'Nugegoda', 112345893, 'kfc@gmail.com', '01.jpg', 'yes', 'yes', 'yes', '79.84560000', '6.45670000');
 
 --
 -- Indexes for dumped tables
@@ -102,6 +117,13 @@ ALTER TABLE `contact`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `food`
+--
+ALTER TABLE `food`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_food_restaurant_idx` (`restaurant_id`);
 
 --
 -- Indexes for table `restaurant`
@@ -123,13 +145,23 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `food`
+--
+ALTER TABLE `food`
+  ADD CONSTRAINT `fk_food_restaurant` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -11,6 +11,22 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <link rel="stylesheet" href="<?php echo base_url() ?>styles/css/main.css">
 
+            <style>
+      #map {
+        height: 400px;
+        width: 70%;
+       }
+
+       #mapProfile{
+        height: 100px;
+        width: 80px;
+       }
+
+
+/* The Modal (background) */
+
+    </style>
+
 
 
 

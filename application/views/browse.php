@@ -10,6 +10,8 @@
 
         </span>
     </h5>
+
+<b><h3 class="ui header"><font color="dodgerblue"><?= $time?></font> </h3></b>
 <h1 class="my-4"></h1>
 
  

@@ -23,9 +23,8 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->data = array();
 		$this->load->model('Model_user');
-		$this->data['breakast_restaurants'] = $this->Model_user->getBreakfastResturants();
-		$this->data['lunch_restaurants'] = $this->Model_user->getBreakfastResturants();
-		$this->data['dinner_restaurants'] = $this->Model_user->getBreakfastResturants();
+		$this->data['allRestaurants'] = $this->Model_user->getAllResturants();
+		
 		
 	}
 
@@ -95,12 +94,15 @@ class Home extends CI_Controller {
 
 		if($time == "breakfast"){
 			$this->data['restaurants'] = $this->Model_user->getBreakfastResturants();
+			$this->data['time'] = "Breakfast";
 		}
 		elseif($time == "lunch"){
 			$this->data['restaurants'] = $this->Model_user->getLunchResturants();
+			$this->data['time'] = "Lunch";
 		}
 		elseif($time == "dinner"){
 			$this->data['restaurants'] = $this->Model_user->getDinnerResturants();
+			$this->data['time'] = "Dinner";
 		}
 
 
@@ -109,7 +111,8 @@ class Home extends CI_Controller {
 
 	public function map(){
 
-		$this->load->view('browse',$this->data);
+
+		$this->load->view('map',$this->data);
 	}
 
 	

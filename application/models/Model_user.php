@@ -123,4 +123,14 @@ class Model_user extends CI_Model{
 	}
 
 
+	function getAllResturants(){
+		try {
+		    $result = $this->db->get('restaurant');
+		    return $result->result();
+		} catch (Exception $e) {
+			return $err->getMessage();
+		}
+	}
+
+
 }

@@ -132,5 +132,20 @@ class Model_user extends CI_Model{
 		}
 	}
 
+	function searchrResturants($keyword){
+		try{
+
+			$this->db->like('town', $keyword);
+			$this->db->or_like('address', $keyword);
+			$query = $this->db->get('restaurant');
+			return $query->result();
+
+		}catch(Exception $e){
+			return $err->getMessage();
+		}
+		
+	
+	}
+
 
 }

@@ -24,15 +24,22 @@
        
         
        <div class="row" >
- <div class="col-lg-4" style="margin-left:500px;margin-top:50px;margin-bottom:50px">
-    <div class="input-group">
-     
-      <input type="text" class="form-control" placeholder="Search for...">
-       <span class="input-group-btn">
-        <button class="btn btn-success" type="button">Go!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+         <form  class="form-inline" action="<?php echo base_url('index.php/Home/'); ?>searchMap" method="POST">
+
+                <div class="col-lg-4" style="margin-left:500px;margin-top:50px;margin-bottom:50px">
+          <div class="input-group">
+           
+            <input type="text" name="town" class="form-control" placeholder="Search for...">
+             <span class="input-group-btn">
+              <button class="btn btn-success"  type="submit">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+                   
+        </form>
+
+
+ 
   </div>
 
         

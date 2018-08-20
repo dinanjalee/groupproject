@@ -115,6 +115,14 @@ class Home extends CI_Controller {
 		$this->load->view('map',$this->data);
 	}
 
+	public function searchMap(){
+		$this->load->model('Model_user');
+		$keyword = $this->input->post('town');
+		$this->data['allRestaurants'] = $this->Model_user->searchrResturants($keyword);
+		$this->load->view('map',$this->data);
+		
+	}
+
 	
 
 
